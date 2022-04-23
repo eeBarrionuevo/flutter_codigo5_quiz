@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo5_quiz/question.dart';
+
+
 
 void main() {
   runApp(MyApp());
@@ -22,17 +25,28 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  List<String> questions = [
-    "El hombre llegó a la luna?",
-    "La tierra es plana?",
-    "Desayunaron?",
+
+  // List<String> questions = [
+  //   "El hombre llegó a la luna?",
+  //   "La tierra es plana?",
+  //   "Desayunaron?",
+  // ];
+  //
+  // List<bool> answers = [
+  //   true,
+  //   false,
+  //   false,
+  // ];
+
+
+  List<Question> questions = [
+    Question(questionText: "El hombre llegó a luna?", questionAnswer: true),
+    Question(questionText: "El mar es azul", questionAnswer: false),
+    Question(questionText: "Desayunaron?", questionAnswer: false),
+    Question(questionText: "Van a almorzar?", questionAnswer: true),
+    Question(questionText: "Hace frio?", questionAnswer: true),
   ];
 
-  List<bool> answers = [
-    true,
-    false,
-    false,
-  ];
 
   int questionNumber = 0;
 
