@@ -29,6 +29,12 @@ class _QuizPageState extends State<QuizPage> {
     "Desayunaron?",
   ];
 
+  List<bool> answers = [
+    true,
+    false,
+    false,
+  ];
+
   int questionNumber = 0;
 
   List<Icon> scoreKeeper = [
