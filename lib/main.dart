@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo5_quiz/quiz_brain.dart';
-
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 
 void main() {
@@ -34,6 +34,7 @@ class _QuizPageState extends State<QuizPage> {
 
 
   void checkAnswer(bool userAnswer){
+
     bool correctAnswer = matasquita.getQuestionAnswer();
     if (correctAnswer == userAnswer) {
       scoreKeeper.add(
@@ -52,6 +53,8 @@ class _QuizPageState extends State<QuizPage> {
     }
     matasquita.nextQuestion();
     setState(() {});
+
+
   }
 
 
