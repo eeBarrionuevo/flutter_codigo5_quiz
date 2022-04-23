@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codigo5_quiz/question.dart';
+import 'package:flutter_codigo5_quiz/quiz_brain.dart';
 
 
 
@@ -26,26 +26,8 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
 
-  // List<String> questions = [
-  //   "El hombre llegó a la luna?",
-  //   "La tierra es plana?",
-  //   "Desayunaron?",
-  // ];
-  //
-  // List<bool> answers = [
-  //   true,
-  //   false,
-  //   false,
-  // ];
 
-
-  List<Question> questions = [
-    Question(questionText: "El hombre llegó a luna?", questionAnswer: true),
-    Question(questionText: "El mar es azul", questionAnswer: false),
-    Question(questionText: "Desayunaron?", questionAnswer: false),
-    Question(questionText: "Van a almorzar?", questionAnswer: true),
-    Question(questionText: "Hace frio?", questionAnswer: true),
-  ];
+  QuizBrain matasquita = QuizBrain();
 
   int questionNumber = 0;
 
@@ -57,7 +39,7 @@ class _QuizPageState extends State<QuizPage> {
       backgroundColor: Color(0xff272C2F),
       appBar: AppBar(
         backgroundColor: Color(0xff272C2F),
-        title: Text("QuizApp"),
+        title: const Text("QuizApp"),
         centerTitle: true,
       ),
       body: Column(
@@ -67,9 +49,9 @@ class _QuizPageState extends State<QuizPage> {
             flex: 5,
             child: Center(
               child: Text(
-                questions[questionNumber].questionText,
+                matasquita.questions[questionNumber].questionText,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24.0,
                   color: Colors.white,
                 ),
@@ -84,7 +66,7 @@ class _QuizPageState extends State<QuizPage> {
                 child: const Text("Verdadero"),
                 onPressed: () {
 
-                  bool correctAnswer = questions[questionNumber].questionAnswer;
+                  bool correctAnswer = matasquita.questions[questionNumber].questionAnswer;
 
                   if (correctAnswer == true) {
                     scoreKeeper.add(
