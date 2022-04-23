@@ -17,7 +17,20 @@ class MyApp extends StatelessWidget {
 }
 
 class QuizPage extends StatelessWidget {
-  const QuizPage({Key? key}) : super(key: key);
+
+  List<String> questions = [
+    "El hombre llegó a la luna?",
+    "La tierra es plana?",
+    "Desayunaron?",
+  ];
+
+  List<Icon> scoreKeeper = [
+    Icon(Icons.check,color: Color(0xff00E1B7),),
+    Icon(Icons.check,color: Color(0xff00E1B7),),
+    Icon(Icons.check,color: Color(0xff00E1B7),),
+    Icon(Icons.close,color: Color(0xfff84073),),
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,15 +78,7 @@ class QuizPage extends StatelessWidget {
             ),
           ),
           Row(
-            children: [
-              Icon(Icons.check,color: Color(0xff00E1B7),),
-              Icon(Icons.check,color: Color(0xff00E1B7),),
-              Icon(Icons.check,color: Color(0xff00E1B7),),
-              Icon(Icons.close,color: Color(0xfff84073),),
-              Icon(Icons.close,color: Color(0xfff84073),),
-              Icon(Icons.close,color: Color(0xfff84073),),
-              Icon(Icons.close,color: Color(0xfff84073),),
-            ],
+            children: scoreKeeper,
           ),
         ],
       ),
