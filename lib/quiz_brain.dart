@@ -27,5 +27,14 @@ class QuizBrain{
     }
   }
 
+  bool isFinished (){
+
+  }
+
+  void restart(){
+
+  }
+
+
 
 }
