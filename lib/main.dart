@@ -35,6 +35,7 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Color(0xff272C2F),
       appBar: AppBar(
@@ -49,7 +50,7 @@ class _QuizPageState extends State<QuizPage> {
             flex: 5,
             child: Center(
               child: Text(
-                matasquita.questions[questionNumber].questionText,
+                matasquita.getQuestionText(questionNumber),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 24.0,
@@ -66,7 +67,7 @@ class _QuizPageState extends State<QuizPage> {
                 child: const Text("Verdadero"),
                 onPressed: () {
 
-                  bool correctAnswer = matasquita.questions[questionNumber].questionAnswer;
+                  bool correctAnswer = matasquita.getQuestionAnswer(questionNumber);
 
                   if (correctAnswer == true) {
                     scoreKeeper.add(
