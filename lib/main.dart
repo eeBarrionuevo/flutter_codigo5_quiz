@@ -16,7 +16,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class QuizPage extends StatelessWidget {
+class QuizPage extends StatefulWidget {
+  @override
+  State<QuizPage> createState() => _QuizPageState();
+}
+
+class _QuizPageState extends State<QuizPage> {
 
   List<String> questions = [
     "El hombre llegó a la luna?",
@@ -24,13 +29,14 @@ class QuizPage extends StatelessWidget {
     "Desayunaron?",
   ];
 
+  int questionNumber = 0;
+
   List<Icon> scoreKeeper = [
     Icon(Icons.check,color: Color(0xff00E1B7),),
     Icon(Icons.check,color: Color(0xff00E1B7),),
     Icon(Icons.check,color: Color(0xff00E1B7),),
     Icon(Icons.close,color: Color(0xfff84073),),
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +54,7 @@ class QuizPage extends StatelessWidget {
             flex: 5,
             child: Center(
               child: Text(
-                "Aquí va a ir la pregunta de nuestro quiz asdsad asdsa ",
+                questions[questionNumber],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 24.0,
@@ -63,7 +69,12 @@ class QuizPage extends StatelessWidget {
               child: MaterialButton(
                 color: const Color(0xff00E1B7),
                 child: const Text("Verdadero"),
-                onPressed: () {},
+                onPressed: () {
+                  questionNumber++;
+                  setState(() {
+
+                  });
+                },
               ),
             ),
           ),
