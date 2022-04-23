@@ -22,7 +22,6 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-
   List<String> questions = [
     "El hombre llegó a la luna?",
     "La tierra es plana?",
@@ -73,14 +72,24 @@ class _QuizPageState extends State<QuizPage> {
                 onPressed: () {
 
                   bool correctAnswer = answers[questionNumber];
-                  if(correctAnswer == true){
-                    scoreKeeper.add(Icon(Icons.check, color: Color(0xff00E1B7),),);
-                  }else{
-                    scoreKeeper.add(Icon(Icons.close, color: Color(0xfff84073),),);
-                  }
-                  setState(() {
 
-                  });
+                  if (correctAnswer == true) {
+                    scoreKeeper.add(
+                      Icon(
+                        Icons.check,
+                        color: Color(0xff00E1B7),
+                      ),
+                    );
+                  } else {
+                    scoreKeeper.add(
+                      Icon(
+                        Icons.close,
+                        color: Color(0xfff84073),
+                      ),
+                    );
+                  }
+                  questionNumber++;
+                  setState(() {});
 
                 },
               ),
@@ -92,7 +101,31 @@ class _QuizPageState extends State<QuizPage> {
               child: MaterialButton(
                 color: const Color(0xfff84073),
                 child: const Text("False"),
-                onPressed: () {},
+                onPressed: () {
+
+                  bool correctAnswer = answers[questionNumber];
+
+                  if (correctAnswer == false) {
+                    scoreKeeper.add(
+                      Icon(
+                        Icons.check,
+                        color: Color(0xff00E1B7),
+                      ),
+                    );
+                  } else {
+                    scoreKeeper.add(
+                      Icon(
+                        Icons.close,
+                        color: Color(0xfff84073),
+                      ),
+                    );
+                  }
+                  questionNumber++;
+                  setState(() {});
+
+
+
+                },
               ),
             ),
           ),
