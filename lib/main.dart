@@ -29,8 +29,6 @@ class _QuizPageState extends State<QuizPage> {
 
   QuizBrain matasquita = QuizBrain();
 
-  int questionNumber = 0;
-
   List<Icon> scoreKeeper = [];
 
   @override
@@ -50,7 +48,7 @@ class _QuizPageState extends State<QuizPage> {
             flex: 5,
             child: Center(
               child: Text(
-                matasquita.getQuestionText(questionNumber),
+                matasquita.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 24.0,
@@ -66,9 +64,7 @@ class _QuizPageState extends State<QuizPage> {
                 color: const Color(0xff00E1B7),
                 child: const Text("Verdadero"),
                 onPressed: () {
-
-                  bool correctAnswer = matasquita.getQuestionAnswer(questionNumber);
-
+                  bool correctAnswer = matasquita.getQuestionAnswer();
                   if (correctAnswer == true) {
                     scoreKeeper.add(
                       Icon(
@@ -84,9 +80,8 @@ class _QuizPageState extends State<QuizPage> {
                       ),
                     );
                   }
-                  questionNumber++;
+                  matasquita.nextQuestion();
                   setState(() {});
-
                 },
               ),
             ),
