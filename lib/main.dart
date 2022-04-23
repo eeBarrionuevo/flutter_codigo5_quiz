@@ -22,7 +22,9 @@ class QuizPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff272C2F),
       appBar: AppBar(
+        backgroundColor: Color(0xff272C2F),
         title: Text("QuizApp"),
         centerTitle: true,
       ),
@@ -31,23 +33,47 @@ class QuizPage extends StatelessWidget {
         children: [
           Expanded(
             flex: 5,
-            child: Text(
-              "Aquí va a ir la pregunta",
+            child: Center(
+              child: Text(
+                "Aquí va a ir la pregunta de nuestro quiz asdsad asdsa ",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24.0,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
           Expanded(
-            child: MaterialButton(
-              color: Colors.greenAccent,
-              child: Text("Verdadero"),
-              onPressed: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(
+                color: const Color(0xff00E1B7),
+                child: const Text("Verdadero"),
+                onPressed: () {},
+              ),
             ),
           ),
           Expanded(
-            child: MaterialButton(
-              color: Colors.red,
-              child: Text("False"),
-              onPressed: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(
+                color: const Color(0xfff84073),
+                child: const Text("False"),
+                onPressed: () {},
+              ),
             ),
+          ),
+          Row(
+            children: [
+              Icon(Icons.check,color: Color(0xff00E1B7),),
+              Icon(Icons.check,color: Color(0xff00E1B7),),
+              Icon(Icons.check,color: Color(0xff00E1B7),),
+              Icon(Icons.close,color: Color(0xfff84073),),
+              Icon(Icons.close,color: Color(0xfff84073),),
+              Icon(Icons.close,color: Color(0xfff84073),),
+              Icon(Icons.close,color: Color(0xfff84073),),
+            ],
           ),
         ],
       ),
