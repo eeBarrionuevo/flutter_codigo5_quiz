@@ -28,11 +28,14 @@ class QuizBrain{
   }
 
   bool isFinished (){
-    return true;
+    if(_questionNumber >= _questions.length - 1){
+      return true;
+    }
+    return false;
   }
 
   void restart(){
-
+    _questionNumber = 0;
   }
 
 
