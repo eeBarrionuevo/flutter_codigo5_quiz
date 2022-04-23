@@ -47,7 +47,6 @@ class _QuizPageState extends State<QuizPage> {
     Question(questionText: "Hace frio?", questionAnswer: true),
   ];
 
-
   int questionNumber = 0;
 
   List<Icon> scoreKeeper = [];
@@ -68,7 +67,7 @@ class _QuizPageState extends State<QuizPage> {
             flex: 5,
             child: Center(
               child: Text(
-                questions[questionNumber],
+                questions[questionNumber].questionText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 24.0,
@@ -85,7 +84,7 @@ class _QuizPageState extends State<QuizPage> {
                 child: const Text("Verdadero"),
                 onPressed: () {
 
-                  bool correctAnswer = answers[questionNumber];
+                  bool correctAnswer = questions[questionNumber].questionAnswer;
 
                   if (correctAnswer == true) {
                     scoreKeeper.add(
@@ -117,25 +116,6 @@ class _QuizPageState extends State<QuizPage> {
                 child: const Text("False"),
                 onPressed: () {
 
-                  bool correctAnswer = answers[questionNumber];
-
-                  if (correctAnswer == false) {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.check,
-                        color: Color(0xff00E1B7),
-                      ),
-                    );
-                  } else {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.close,
-                        color: Color(0xfff84073),
-                      ),
-                    );
-                  }
-                  questionNumber++;
-                  setState(() {});
 
 
 
