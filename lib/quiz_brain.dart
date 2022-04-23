@@ -11,18 +11,20 @@ class QuizBrain{
     Question(questionText: "Hace frio?", questionAnswer: true),
   ];
 
-  int questionNumber = 0;
+  int _questionNumber = 0;
 
   String getQuestionText(){
-    return _questions[questionNumber].questionText;
+    return _questions[_questionNumber].questionText;
   }
 
   bool getQuestionAnswer(){
-    return _questions[questionNumber].questionAnswer;
+    return _questions[_questionNumber].questionAnswer;
   }
 
   void nextQuestion(){
-    questionNumber++;
+    if(_questionNumber < _questions.length - 1){
+      _questionNumber++;
+    }
   }
 
 
