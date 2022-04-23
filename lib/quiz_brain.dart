@@ -28,7 +28,7 @@ class QuizBrain{
   }
 
   bool isFinished (){
-
+    return true;
   }
 
   void restart(){

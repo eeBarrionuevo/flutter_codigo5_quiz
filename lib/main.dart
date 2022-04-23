@@ -31,6 +31,32 @@ class _QuizPageState extends State<QuizPage> {
 
   List<Icon> scoreKeeper = [];
 
+
+
+  void checkAnswer(bool userAnswer){
+    bool correctAnswer = matasquita.getQuestionAnswer();
+    if (correctAnswer == userAnswer) {
+      scoreKeeper.add(
+        Icon(
+          Icons.check,
+          color: Color(0xff00E1B7),
+        ),
+      );
+    } else {
+      scoreKeeper.add(
+        Icon(
+          Icons.close,
+          color: Color(0xfff84073),
+        ),
+      );
+    }
+    matasquita.nextQuestion();
+    setState(() {});
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
 
@@ -64,24 +90,9 @@ class _QuizPageState extends State<QuizPage> {
                 color: const Color(0xff00E1B7),
                 child: const Text("Verdadero"),
                 onPressed: () {
-                  bool correctAnswer = matasquita.getQuestionAnswer();
-                  if (correctAnswer == true) {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.check,
-                        color: Color(0xff00E1B7),
-                      ),
-                    );
-                  } else {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.close,
-                        color: Color(0xfff84073),
-                      ),
-                    );
-                  }
-                  matasquita.nextQuestion();
-                  setState(() {});
+
+                  checkAnswer(true);
+
                 },
               ),
             ),
@@ -94,7 +105,7 @@ class _QuizPageState extends State<QuizPage> {
                 child: const Text("False"),
                 onPressed: () {
 
-
+                  checkAnswer(false);
 
 
                 },
