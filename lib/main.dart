@@ -37,12 +37,7 @@ class _QuizPageState extends State<QuizPage> {
 
   int questionNumber = 0;
 
-  List<Icon> scoreKeeper = [
-    Icon(Icons.check,color: Color(0xff00E1B7),),
-    Icon(Icons.check,color: Color(0xff00E1B7),),
-    Icon(Icons.check,color: Color(0xff00E1B7),),
-    Icon(Icons.close,color: Color(0xfff84073),),
-  ];
+  List<Icon> scoreKeeper = [];
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +71,17 @@ class _QuizPageState extends State<QuizPage> {
                 color: const Color(0xff00E1B7),
                 child: const Text("Verdadero"),
                 onPressed: () {
-                  questionNumber++;
+
+                  bool correctAnswer = answers[questionNumber];
+                  if(correctAnswer == true){
+                    scoreKeeper.add(Icon(Icons.check, color: Color(0xff00E1B7),),);
+                  }else{
+                    scoreKeeper.add(Icon(Icons.close, color: Color(0xfff84073),),);
+                  }
                   setState(() {
 
                   });
+
                 },
               ),
             ),
